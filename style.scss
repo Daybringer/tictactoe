@@ -1,0 +1,137 @@
+
+$awesome: #ff1053;
+$space_grey: #494947;
+$maya: #54defd;
+$sandstorm: #e7e247;
+$pearl: #e8eddf;
+
+html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: $pearl;;
+}
+.header {
+  text-align: center;
+  padding: 50px;
+  font-size: 60px;
+  color: $awesome;
+  // text-shadow: -2px 4 $space_grey, 4 2px $space_grey, 2px 4 $space_grey, 4 -2px $space_grey;
+}
+.main {
+  display: grid;
+  grid-auto-columns:33%;
+}
+.game {
+  grid-row: 1;
+  grid-column: 2;
+  display: grid;
+  border: 3px solid $space_grey;
+  height: 50vh;
+  width: 50vh;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.options {
+  grid-row: 1;
+  grid-column: 1;
+  background-color: $pearl;
+  border: 7px solid $space_grey;
+  border-radius: 20%;
+  padding: 0;
+  width:70%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  .options_menu {
+    width: 50%;
+    background-color: $awesome;
+    color: $pearl;
+    font-size: 1.5rem;
+    font-weight: 1000;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.9s;
+  }
+  .options_menu:hover {
+    background-color: $pearl;
+    color: $awesome;
+  }
+  p {
+
+  }
+}
+
+.options_list {
+
+  list-style-type: none;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+li {
+  float: left;
+  display: block;
+}
+.draw {
+  grid-row: 1;
+  grid-column: 3;
+  text-align: left;
+}
+.draw_player {
+  color: $awesome;
+  font-size: 30px;
+}
+.square {
+  border: 3px solid $space_grey;
+}
+#a1{
+  background-color: $awesome;
+  grid-column:1;
+  grid-row:1;
+  
+}
+#a2{
+  background-color: $sandstorm;
+  grid-column:2;
+  grid-row:1;
+}
+#a3{
+  background-color: $awesome;
+  grid-column:3;
+  grid-row:1;
+}
+#b1{
+  background-color: $sandstorm;
+  grid-column:1;
+  grid-row:2;
+}
+#b2{
+  background-color: $sandstorm;
+  grid-column:2;
+  grid-row:2;
+}
+#b3{
+  background-color: $awesome;
+  grid-column:3;
+  grid-row:2;
+}
+#c1{
+  background-color: $awesome;
+  grid-column:1;
+  grid-row:3;
+}
+#c2{
+  background-color: $sandstorm;
+  grid-column:2;
+  grid-row:3;
+}
+#c3{
+  background-color: $awesome;
+  grid-column:3;
+  grid-row:3;
+}
