@@ -58,8 +58,8 @@ html {
     transition: 0.9s;
   }
   .options_menu:hover {
-    background-color: $pearl;
-    color: $awesome;
+    background-color: $pearl !important;
+    color: $awesome !important;
   }
   p {
 
@@ -82,56 +82,63 @@ li {
   grid-column: 3;
   text-align: left;
 }
-.draw_player {
-  color: $awesome;
-  font-size: 30px;
+#draw_player {
+  border: 3px solid $space_grey;
+  border-radius: 20%;
+  height: 60px;
+  width: 50%;
+  background-color: $awesome;
+  text-align: center;
+  transition: 0.5s;
+  margin-left: auto;
+  margin-right: auto;
+}
+#game_state {
+  display: none;
+}
+#again {
+  display: none;
 }
 .square {
   border: 3px solid $space_grey;
+  transition: 1s;
+  cursor: pointer;
+  background-color: #e8eddf;
 }
 #a1{
-  background-color: $awesome;
   grid-column:1;
   grid-row:1;
-  
+  background-color: #e8eddf;
 }
 #a2{
-  background-color: $sandstorm;
   grid-column:2;
   grid-row:1;
 }
 #a3{
-  background-color: $awesome;
   grid-column:3;
   grid-row:1;
 }
 #b1{
-  background-color: $sandstorm;
   grid-column:1;
   grid-row:2;
 }
 #b2{
-  background-color: $sandstorm;
   grid-column:2;
   grid-row:2;
 }
 #b3{
-  background-color: $awesome;
   grid-column:3;
   grid-row:2;
 }
 #c1{
-  background-color: $awesome;
   grid-column:1;
   grid-row:3;
 }
 #c2{
-  background-color: $sandstorm;
   grid-column:2;
   grid-row:3;
 }
 #c3{
-  background-color: $awesome;
   grid-column:3;
   grid-row:3;
 }

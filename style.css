@@ -65,8 +65,8 @@ html {
 }
 
 .options .options_menu:hover {
-  background-color: #e8eddf;
-  color: #ff1053;
+  background-color: #e8eddf !important;
+  color: #ff1053 !important;
 }
 
 .options_list {
@@ -88,25 +88,44 @@ li {
   text-align: left;
 }
 
-.draw_player {
-  color: #ff1053;
-  font-size: 30px;
+#draw_player {
+  border: 3px solid #494947;
+  border-radius: 20%;
+  height: 60px;
+  width: 50%;
+  background-color: #ff1053;
+  text-align: center;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#game_state {
+  display: none;
+}
+
+#again {
+  display: none;
 }
 
 .square {
   border: 3px solid #494947;
+  -webkit-transition: 1s;
+  transition: 1s;
+  cursor: pointer;
+  background-color: #e8eddf;
 }
 
 #a1 {
-  background-color: #ff1053;
   -ms-grid-column: 1;
   grid-column: 1;
   -ms-grid-row: 1;
   grid-row: 1;
+  background-color: #e8eddf;
 }
 
 #a2 {
-  background-color: #e7e247;
   -ms-grid-column: 2;
   grid-column: 2;
   -ms-grid-row: 1;
@@ -114,7 +133,6 @@ li {
 }
 
 #a3 {
-  background-color: #ff1053;
   -ms-grid-column: 3;
   grid-column: 3;
   -ms-grid-row: 1;
@@ -122,7 +140,6 @@ li {
 }
 
 #b1 {
-  background-color: #e7e247;
   -ms-grid-column: 1;
   grid-column: 1;
   -ms-grid-row: 2;
@@ -130,7 +147,6 @@ li {
 }
 
 #b2 {
-  background-color: #e7e247;
   -ms-grid-column: 2;
   grid-column: 2;
   -ms-grid-row: 2;
@@ -138,7 +154,6 @@ li {
 }
 
 #b3 {
-  background-color: #ff1053;
   -ms-grid-column: 3;
   grid-column: 3;
   -ms-grid-row: 2;
@@ -146,7 +161,6 @@ li {
 }
 
 #c1 {
-  background-color: #ff1053;
   -ms-grid-column: 1;
   grid-column: 1;
   -ms-grid-row: 3;
@@ -154,7 +168,6 @@ li {
 }
 
 #c2 {
-  background-color: #e7e247;
   -ms-grid-column: 2;
   grid-column: 2;
   -ms-grid-row: 3;
@@ -162,7 +175,6 @@ li {
 }
 
 #c3 {
-  background-color: #ff1053;
   -ms-grid-column: 3;
   grid-column: 3;
   -ms-grid-row: 3;
