@@ -66,10 +66,12 @@ function win_check() {
 
   function won(player) {
     console.log(`${player} has won !!!`)
-    console.log(gamePlan);
     document.getElementById("draw_player").style.display = "none";
     document.getElementById("game_state").style.display = "block";
     document.getElementById("again").style.display = "block";
+
+    document.getElementById("game_state_text").style.color = (round % 2 === 0) ? playerColorOne : playerColorTwo;
+    document.getElementById("game_state_text").innerHTML = (player === "tie") ? "TIE" : (player === "playerOne") ? "Player one has won" : "Player two has won";
   }
 }
 
@@ -78,16 +80,20 @@ function options_click(onID, offID) {
   document.getElementById(onID).style.backgroundColor = "#FF638F";
   document.getElementById(offID).style.backgroundColor = "#ff1053";
   if (onID === "left_b") {
-    document.getElementById("info").style.display = "none";
-    document.getElementById("settings").style.display = "block";
-  } else if (onID === "right_b") {
-    document.getElementById("settings").style.display = "none";
     document.getElementById("info").style.display = "block";
+    document.getElementById("settings").style.display = "none";
+  } else if (onID === "right_b") {
+    document.getElementById("settings").style.display = "block";
+    document.getElementById("info").style.display = "none";
   }
 }
 
 function makeClickable() {
 
+}
+
+function again() {
+  location.reload();
 }
 
 function makeUnclickable() {

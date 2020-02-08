@@ -56,6 +56,8 @@ html {
     text-align: center;
     cursor: pointer;
     transition: 0.9s;
+    position: relative;
+    z-index: 5;
   }
   .options_menu:hover {
     background-color: $pearl !important;
@@ -72,6 +74,26 @@ html {
   margin-left: auto;
   margin-right: auto;
 
+}
+#info {
+  height: 100%;
+}
+
+.submit_settings{
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  border-radius: 20%;
+  padding: 1rem;
+  background-color: $awesome;
+  color: $pearl;
+  font-size: 1.5rem;
+  font-weight: 1000;
+}
+#settings {
+  height: 100%;
+  position: relative;
 }
 li {
   float: left;
