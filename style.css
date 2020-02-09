@@ -8,8 +8,8 @@ html {
 
 .header {
   text-align: center;
-  padding: 50px;
-  font-size: 60px;
+  padding: 5vw;
+  font-size: 5vw;
   color: #ff1053;
 }
 
@@ -19,19 +19,38 @@ html {
   grid-auto-columns: 33%;
 }
 
-.game {
+.game_container {
   -ms-grid-row: 1;
   grid-row: 1;
   -ms-grid-column: 2;
   grid-column: 2;
+  padding-top: 100%;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.game {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
   display: -ms-grid;
   display: grid;
   border: 3px solid #494947;
-  height: 50vh;
-  width: 50vh;
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
+}
+
+.game .square {
+  border: 3px solid #494947;
+  -webkit-transition: 1s;
+  transition: 1s;
+  cursor: pointer;
+  background-color: #e8eddf;
 }
 
 .options {
@@ -71,17 +90,33 @@ html {
   color: #ff1053 !important;
 }
 
-.options_list {
-  list-style-type: none;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 #info {
   height: 100%;
 }
 
-.submit_settings {
+#settings {
+  height: 100%;
+  position: relative;
+}
+
+#settings .tryB {
+  width: 100%;
+  background-color: #ff1053;
+  color: #e8eddf;
+  font-size: 1.5rem;
+  font-weight: 1000;
+  margin: 0.5rem 0;
+  padding: 0.5rem 0;
+  float: left;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: 0.9s;
+  transition: 0.9s;
+  position: relative;
+  z-index: 5;
+}
+
+#settings .submit_settings {
   position: absolute;
   bottom: 0;
   text-align: center;
@@ -92,16 +127,14 @@ html {
   color: #e8eddf;
   font-size: 1.5rem;
   font-weight: 1000;
+  cursor: pointer;
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 
-#settings {
-  height: 100%;
-  position: relative;
-}
-
-li {
-  float: left;
-  display: block;
+#settings .submit_settings:hover {
+  background-color: #e8eddf !important;
+  color: #ff1053 !important;
 }
 
 .draw {
@@ -109,7 +142,7 @@ li {
   grid-row: 1;
   -ms-grid-column: 3;
   grid-column: 3;
-  text-align: left;
+  text-align: center;
 }
 
 #draw_player {
@@ -133,75 +166,56 @@ li {
   display: none;
 }
 
-.square {
-  border: 3px solid #494947;
-  -webkit-transition: 1s;
-  transition: 1s;
-  cursor: pointer;
-  background-color: #e8eddf;
+@media only screen and (max-width: 767px) {
+  .main {
+    grid-auto-columns: 100%;
+  }
+  .header {
+    font-size: 12vw;
+  }
+  .options {
+    -ms-grid-column: 1;
+    grid-column: 1;
+    -ms-grid-row: 1;
+    grid-row: 1;
+  }
+  .game_container {
+    -ms-grid-column: 1;
+    grid-column: 1;
+    -ms-grid-row: 2;
+    grid-row: 2;
+  }
+  .draw {
+    -ms-grid-column: 1;
+    grid-column: 1;
+    -ms-grid-row: 3;
+    grid-row: 3;
+  }
 }
 
-#a1 {
-  -ms-grid-column: 1;
-  grid-column: 1;
-  -ms-grid-row: 1;
-  grid-row: 1;
-  background-color: #e8eddf;
-}
-
-#a2 {
-  -ms-grid-column: 2;
-  grid-column: 2;
-  -ms-grid-row: 1;
-  grid-row: 1;
-}
-
-#a3 {
-  -ms-grid-column: 3;
-  grid-column: 3;
-  -ms-grid-row: 1;
-  grid-row: 1;
-}
-
-#b1 {
-  -ms-grid-column: 1;
-  grid-column: 1;
-  -ms-grid-row: 2;
-  grid-row: 2;
-}
-
-#b2 {
-  -ms-grid-column: 2;
-  grid-column: 2;
-  -ms-grid-row: 2;
-  grid-row: 2;
-}
-
-#b3 {
-  -ms-grid-column: 3;
-  grid-column: 3;
-  -ms-grid-row: 2;
-  grid-row: 2;
-}
-
-#c1 {
-  -ms-grid-column: 1;
-  grid-column: 1;
-  -ms-grid-row: 3;
-  grid-row: 3;
-}
-
-#c2 {
-  -ms-grid-column: 2;
-  grid-column: 2;
-  -ms-grid-row: 3;
-  grid-row: 3;
-}
-
-#c3 {
-  -ms-grid-column: 3;
-  grid-column: 3;
-  -ms-grid-row: 3;
-  grid-row: 3;
+@media only screen and (max-width: 1204px) and (min-width: 768px) {
+  .main {
+    grid-auto-columns: 50%;
+  }
+  .header {
+    font-size: 10vw;
+  }
+  .options {
+    -ms-grid-column: 1;
+    grid-column: 1;
+    -ms-grid-row: 1;
+    grid-row: 1;
+  }
+  .game_container {
+    -ms-grid-column: 2;
+    grid-column: 2;
+    -ms-grid-row: 1;
+    grid-row: 1;
+  }
+  .draw {
+    grid-column: -1;
+    -ms-grid-row: 2;
+    grid-row: 2;
+  }
 }
 /*# sourceMappingURL=style.css.map */

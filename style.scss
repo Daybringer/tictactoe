@@ -13,26 +13,44 @@ html {
 }
 .header {
   text-align: center;
-  padding: 50px;
-  font-size: 60px;
+  padding: 5vw;
+  font-size: 5vw;
   color: $awesome;
-  // text-shadow: -2px 4 $space_grey, 4 2px $space_grey, 2px 4 $space_grey, 4 -2px $space_grey;
 }
+
 .main {
   display: grid;
   grid-auto-columns:33%;
 }
-.game {
+// MIDDLE SECTOR
+.game_container {
   grid-row: 1;
   grid-column: 2;
-  display: grid;
-  border: 3px solid $space_grey;
-  height: 50vh;
-  width: 50vh;
+  padding-top: 100%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
-  text-align: center;
+  position: relative;
 }
+.game {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  border: 3px solid $space_grey;
+  text-align: center;
+  .square {
+    border: 3px solid $space_grey;
+    transition: 1s;
+    cursor: pointer;
+    background-color: #e8eddf;
+  }
+}
+// FIRST SECTOR
 .options {
   grid-row: 1;
   grid-column: 1;
@@ -63,46 +81,55 @@ html {
     background-color: $pearl !important;
     color: $awesome !important;
   }
-  p {
-
-  }
-}
-
-.options_list {
-
-  list-style-type: none;
-  margin-left: auto;
-  margin-right: auto;
 
 }
+
 #info {
   height: 100%;
 }
 
-.submit_settings{
-  position: absolute;
-  bottom: 0;
-  text-align: center;
-  width: 100%;
-  border-radius: 20%;
-  padding: 1rem;
-  background-color: $awesome;
-  color: $pearl;
-  font-size: 1.5rem;
-  font-weight: 1000;
-}
 #settings {
   height: 100%;
   position: relative;
+  .tryB {
+    width: 100%;
+    background-color: $awesome;
+    color: $pearl;
+    font-size: 1.5rem;
+    font-weight: 1000;
+    margin: 0.5rem 0;
+    padding: 0.5rem 0;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.9s;
+    position: relative;
+    z-index: 5;
+  }
+  .submit_settings{
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    border-radius: 20%;
+    padding: 1rem;
+    background-color: $awesome;
+    color: $pearl;
+    font-size: 1.5rem;
+    font-weight: 1000;
+    cursor: pointer;
+    transition: 1s;
+  }
+  .submit_settings:hover {
+    background-color: $pearl !important;
+    color: $awesome !important;
+  }
 }
-li {
-  float: left;
-  display: block;
-}
+// THIRD SECTOR
 .draw {
   grid-row: 1;
   grid-column: 3;
-  text-align: left;
+  text-align: center;
 }
 #draw_player {
   border: 3px solid $space_grey;
@@ -121,46 +148,46 @@ li {
 #again {
   display: none;
 }
-.square {
-  border: 3px solid $space_grey;
-  transition: 1s;
-  cursor: pointer;
-  background-color: #e8eddf;
+
+
+@media only screen and (max-width: 767px) {
+  .main{
+    grid-auto-columns: 100%;
+  }
+  .header{
+    font-size: 12vw;
+
+  }
+  .options {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .game_container {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .draw {
+    grid-column: 1;
+    grid-row: 3;
+  }
 }
-#a1{
-  grid-column:1;
-  grid-row:1;
-  background-color: #e8eddf;
-}
-#a2{
-  grid-column:2;
-  grid-row:1;
-}
-#a3{
-  grid-column:3;
-  grid-row:1;
-}
-#b1{
-  grid-column:1;
-  grid-row:2;
-}
-#b2{
-  grid-column:2;
-  grid-row:2;
-}
-#b3{
-  grid-column:3;
-  grid-row:2;
-}
-#c1{
-  grid-column:1;
-  grid-row:3;
-}
-#c2{
-  grid-column:2;
-  grid-row:3;
-}
-#c3{
-  grid-column:3;
-  grid-row:3;
+  @media only screen and (max-width: 1204px) and (min-width: 768px) {
+    .main{
+      grid-auto-columns: 50%;
+    }
+    .header{
+      font-size: 10vw;
+    }
+    .options {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    .game_container {
+      grid-column: 2;
+      grid-row: 1;
+    }
+    .draw {
+      grid-column: 1-2;
+      grid-row: 2;
+    }
 }

@@ -13,16 +13,18 @@
 <body>
   <h1 class="header">Pišiškvorky</h1>
   <div class="main">
-    <div class="game">
-      <div id="a1" class="square" onclick='game_click("a1")'></div>
-      <div id="a2" class="square" onclick='game_click("a2")'></div>
-      <div id="a3" class="square" onclick='game_click("a3")'></div>
-      <div id="b1" class="square" onclick='game_click("b1")'></div>
-      <div id="b2" class="square" onclick='game_click("b2")'></div>
-      <div id="b3" class="square" onclick='game_click("b3")'></div>
-      <div id="c1" class="square" onclick='game_click("c1")'></div>
-      <div id="c2" class="square" onclick='game_click("c2")'></div>
-      <div id="c3" class="square" onclick='game_click("c3")'></div>
+    <div class="game_container">
+      <div class="game">
+        <div id="a1" class="square" onclick='game_click("a1")' style="grid-column:1; grid-row:1;"></div>
+        <div id="a2" class="square" onclick='game_click("a2")' style="grid-column:2; grid-row:1;"></div>
+        <div id="a3" class="square" onclick='game_click("a3")' style="grid-column:3; grid-row:1;"></div>
+        <div id="b1" class="square" onclick='game_click("b1")' style="grid-column:1; grid-row:2;"></div>
+        <div id="b2" class="square" onclick='game_click("b2")' style="grid-column:2; grid-row:2;"></div>
+        <div id="b3" class="square" onclick='game_click("b3")' style="grid-column:3; grid-row:2;"></div>
+        <div id="c1" class="square" onclick='game_click("c1")' style="grid-column:1; grid-row:3;"></div>
+        <div id="c2" class="square" onclick='game_click("c2")' style="grid-column:2; grid-row:3;"></div>
+        <div id="c3" class="square" onclick='game_click("c3")' style="grid-column:3; grid-row:3;"></div>
+      </div>
     </div>
     <div class="options">
       <div class="options_menu" id="left_b" onclick='options_click("left_b", "right_b")'
@@ -36,10 +38,9 @@
         <p>Ahoj jak se mas?</p>
       </div>
       <div id="settings">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div class="tryB" style="border-radius: 0 0 10% 10%;"> Ahoj</div>
+        <div class="tryB" style="border-radius: 10% 10% 10% 10%;"> Nazdar</div>
+        <div class="tryB" style="border-radius: 10% 10% 0 0;"> Nashledanou</div>
         <div class="submit_settings">Uložit nastavení</div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 "use strict";
 
 var round = 1;
+var win = false;
 
 let playerColors = {
   pink: "#ff1053",
@@ -16,7 +17,7 @@ options_click("left_b", "right_b");
 
 // Triggered by clicking on game plan
 function game_click(id) {
-  if (RGBToHex(window.getComputedStyle(document.getElementById(id)).getPropertyValue("background-color")) === "#e8eddf") {
+  if (RGBToHex(window.getComputedStyle(document.getElementById(id)).getPropertyValue("background-color")) === "#e8eddf" && !win) {
 
     document.getElementById(id).style.backgroundColor = (round % 2 === 1) ? playerColorOne : playerColorTwo;
     document.getElementById(id).style.cursor = "default";
@@ -31,6 +32,7 @@ function game_click(id) {
 
 // Checking state of rows and columns -> win condition
 function win_check() {
+  let whiteCounter = 0;
 
   for (let x = 0; x < gamePlan.length; x++) {
     let xCounterH = 0;
@@ -61,17 +63,30 @@ function win_check() {
       } else if (oCounterV >= 3) {
         won("playerTwo");
       }
+      if (gamePlan[x][y] === 0) {
+        whiteCounter++;
+      }
     }
   }
 
   function won(player) {
-    console.log(`${player} has won !!!`)
     document.getElementById("draw_player").style.display = "none";
     document.getElementById("game_state").style.display = "block";
     document.getElementById("again").style.display = "block";
 
     document.getElementById("game_state_text").style.color = (round % 2 === 0) ? playerColorOne : playerColorTwo;
-    document.getElementById("game_state_text").innerHTML = (player === "tie") ? "TIE" : (player === "playerOne") ? "Player one has won" : "Player two has won";
+    document.getElementById("game_state_text").innerHTML = (player === "tie") ? "Remíza!" : (player === "playerOne") ? "Růžový hráč vyhrál!" : "Žlutý hráč vyhrál!";
+    win = true;
+    let cursorObj = document.getElementsByClassName("square");
+
+    for (let x = 0; x < cursorObj.length; x++) {
+      cursorObj[x].style.cursor = "default";
+    }
+
+  }
+
+  if (whiteCounter === 0) {
+    won("tie");
   }
 }
 
