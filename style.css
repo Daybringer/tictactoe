@@ -62,7 +62,7 @@ html {
   border: 7px solid #494947;
   border-radius: 20%;
   padding: 0;
-  width: 70%;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
@@ -99,21 +99,23 @@ html {
   position: relative;
 }
 
-#settings .tryB {
-  width: 100%;
-  background-color: #ff1053;
-  color: #e8eddf;
-  font-size: 1.5rem;
-  font-weight: 1000;
+#settings .subSettingsContainer {
+  text-align: center;
   margin: 0.5rem 0;
   padding: 0.5rem 0;
+  width: 100%;
+  font-weight: 1000;
+  font-size: 1rem;
+}
+
+#settings .subSettings {
+  width: 33%;
   float: left;
-  text-align: center;
-  cursor: pointer;
-  -webkit-transition: 0.9s;
-  transition: 0.9s;
-  position: relative;
-  z-index: 5;
+}
+
+#settings .mainB {
+  background-color: #ff1053;
+  color: #e8eddf;
 }
 
 #settings .submit_settings {
@@ -169,6 +171,7 @@ html {
 @media only screen and (max-width: 767px) {
   .main {
     grid-auto-columns: 100%;
+    grid-row-gap: 3rem;
   }
   .header {
     font-size: 12vw;
@@ -178,6 +181,7 @@ html {
     grid-column: 1;
     -ms-grid-row: 1;
     grid-row: 1;
+    width: 100%;
   }
   .game_container {
     -ms-grid-column: 1;
@@ -196,6 +200,7 @@ html {
 @media only screen and (max-width: 1204px) and (min-width: 768px) {
   .main {
     grid-auto-columns: 50%;
+    grid-row-gap: 3rem;
   }
   .header {
     font-size: 10vw;
@@ -213,9 +218,12 @@ html {
     grid-row: 1;
   }
   .draw {
-    grid-column: -1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-column: 1/ span 2;
     -ms-grid-row: 2;
     grid-row: 2;
+    text-align: center;
   }
 }
 /*# sourceMappingURL=style.css.map */

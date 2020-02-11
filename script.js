@@ -32,41 +32,69 @@ function game_click(id) {
 
 // Checking state of rows and columns -> win condition
 function win_check() {
-  let whiteCounter = 0;
-
   for (let x = 0; x < gamePlan.length; x++) {
-    let xCounterH = 0;
-    let oCounterH = 0;
-    let xCounterV = 0;
-    let oCounterV = 0;
-
+    var whiteCounter = 0;
+    var xCounterH = 0;
+    var oCounterH = 0;
+    var xCounterV = 0;
+    var oCounterV = 0;
+    var xCounterDR = 0;
+    var oCounterDR = 0;
+    var xCounterDL = 0;
+    var oCounterDL = 0;
 
     for (let y = 0; y < gamePlan[x].length; y++) {
+
+      // Horizotal check + Empty squares check
       if (gamePlan[x][y] === "X") {
         xCounterH++;
       } else if (gamePlan[x][y] === "O") {
         oCounterH++;
-      }
-      if (xCounterH >= 3) {
-        won("playerOne");
-      } else if (oCounterH >= 3) {
-        won("playerTwo");
+      } else if (gamePlan[x][y] === 0) {
+        whiteCounter++;
       }
 
+      // Vertical check
       if (gamePlan[y][x] === "X") {
         xCounterV++;
       } else if (gamePlan[y][x] === "O") {
         oCounterV++;
       }
-      if (xCounterV >= 3) {
-        won("playerOne");
-      } else if (oCounterV >= 3) {
-        won("playerTwo");
+
+      if ((x + y) < gamePlan.length) {
+        // Right diagonal check
+        if (y <= gamePlan[x + y].length) {
+
+          if (gamePlan[x + y][y] === "O") {
+            oCounterDR++;
+          } else if (gamePlan[x + y][y] === "X") {
+            xCounterDR++;
+          }
+        }
+
+        // Left diagonal check
+        if (y <= gamePlan[x + y].length) {
+          if (gamePlan[x + y][gamePlan[x + y].length - 1 - y] === "O") {
+            oCounterDL++;
+          } else if (gamePlan[x + y][gamePlan[x + y].length - 1 - y] === "X") {
+            xCounterDL++;
+          }
+        }
+
       }
-      if (gamePlan[x][y] === 0) {
-        whiteCounter++;
+
+      // Win condition check
+      if (xCounterV >= 3 || xCounterH >= 3 || xCounterDR >= 3 || xCounterDL >= 3) {
+        won("playerOne");
+        return true;
+      } else if (oCounterV >= 3 || oCounterH >= 3 || oCounterDR >= 3 || oCounterDL >= 3) {
+        won("playerTwo");
+        return true;
       }
     }
+  }
+  if (whiteCounter === 0) {
+    won("tie");
   }
 
   function won(player) {
@@ -82,13 +110,12 @@ function win_check() {
     for (let x = 0; x < cursorObj.length; x++) {
       cursorObj[x].style.cursor = "default";
     }
-
   }
 
-  if (whiteCounter === 0) {
-    won("tie");
-  }
+
 }
+
+
 
 // Options buttons SHOW/HIDE
 function options_click(onID, offID) {

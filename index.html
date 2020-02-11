@@ -38,9 +38,27 @@
         <p>Ahoj jak se mas?</p>
       </div>
       <div id="settings">
-        <div class="tryB" style="border-radius: 0 0 10% 10%;"> Ahoj</div>
-        <div class="tryB" style="border-radius: 10% 10% 10% 10%;"> Nazdar</div>
-        <div class="tryB" style="border-radius: 10% 10% 0 0;"> Nashledanou</div>
+        <div class="fieldSize subSettingsContainer" style="border-radius: 0 0 10% 10%;">
+          <div class="mainB subSettings">Velikost pole:</div>
+          <div class="secondB subSettings">3x3</div>
+          <div class="secondB subSettings">10x10</div>
+        </div>
+        <div class="subSettingsContainer" style="border-radius: 10% 10% 10% 10%;">
+          <div class="mainB subSettings">Barvy:</div>
+          <div class="secondB subSettings">
+            <div class="colorsSettings" style=""></div>
+            <div class="colorsSettings" style=""></div>
+          </div>
+          <div class="secondB subSettings">
+            <div class="colorsSettings" style=""></div>
+            <div class="colorsSettings" style=""></div>
+          </div>
+        </div>
+        <div class="subSettingsContainer" style="border-radius: 10% 10% 0 0;">
+          <div class="mainB subSettings">Velikost pole</div>
+          <div class="secondB subSettings">3x3</div>
+          <div class="secondB subSettings">10x10</div>
+        </div>
         <div class="submit_settings">Uložit nastavení</div>
       </div>
     </div>
@@ -50,7 +68,7 @@
         <h1 id="game_state_text"></h1>
       </div>
       <div id="again">
-        <button onclick="again()">Again?</button>
+        <button onclick="again()">Znovu?</button>
       </div>
     </div>
   </div>
