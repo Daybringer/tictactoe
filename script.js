@@ -32,8 +32,9 @@ function game_click(id) {
 
 // Checking state of rows and columns -> win condition
 function win_check() {
+  var whiteCounter = 0;
   for (let x = 0; x < gamePlan.length; x++) {
-    var whiteCounter = 0;
+
     var xCounterH = 0;
     var oCounterH = 0;
     var xCounterV = 0;
@@ -50,7 +51,8 @@ function win_check() {
         xCounterH++;
       } else if (gamePlan[x][y] === "O") {
         oCounterH++;
-      } else if (gamePlan[x][y] === 0) {
+      }
+      if (gamePlan[x][y] === 0) {
         whiteCounter++;
       }
 
@@ -95,6 +97,8 @@ function win_check() {
   }
   if (whiteCounter === 0) {
     won("tie");
+  } else {
+    console.log(whiteCounter);
   }
 
   function won(player) {
@@ -119,14 +123,16 @@ function win_check() {
 
 // Options buttons SHOW/HIDE
 function options_click(onID, offID) {
-  document.getElementById(onID).style.backgroundColor = "#FF638F";
+  document.getElementById(onID).style.backgroundColor = "#e8eddf";
   document.getElementById(offID).style.backgroundColor = "#ff1053";
+  document.getElementById(onID).style.color = "#ff1053";
+  document.getElementById(offID).style.color = "#e8eddf";
   if (onID === "left_b") {
-    document.getElementById("info").style.display = "block";
+    document.getElementById("info3").style.display = "block";
     document.getElementById("settings").style.display = "none";
   } else if (onID === "right_b") {
     document.getElementById("settings").style.display = "block";
-    document.getElementById("info").style.display = "none";
+    document.getElementById("info3").style.display = "none";
   }
 }
 
