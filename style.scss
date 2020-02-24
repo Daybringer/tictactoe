@@ -22,7 +22,6 @@ html {
 .main {
   display: grid;
   grid-auto-columns:33%;
-  grid-auto-rows: 33%;
 }
 // MIDDLE SECTOR
 .game_container {
@@ -78,7 +77,6 @@ html {
     cursor: pointer;
     transition: 0.9s;
     position: relative;
-    z-index: 5;
   }
   .options_menu:hover {
     background-color: $pearl !important;
@@ -96,56 +94,39 @@ html {
 #info {
   height: 100%;
 }
-.option {
-  height: 20%;
 
-}
-.suboption {
-  width: 33%;
-  float: left;
-  height: 100%;
-}
-.colorsSettings {
-  width: 50%;
-  float: left;
-  height: 50%;
-}
+
 #settings {
   height: 100%;
-  position: relative;
-  .subSettingsContainer{
-    text-align: center;
-    margin: 0.5rem 0;
-    padding: 0.5rem 0;
-    width: 100%;
+  // position: relative;
+  .suboption {
+    width: 33.3%;
+    // background-color: $awesome;
+    color: $space_grey;
+    font-size: 1.5rem;
     font-weight: 1000;
-    font-size: 1rem;
-  }
-
-  .subSettings{
-    width: 33%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     float: left;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.9s;
+    position: relative;
   }
-  
-  .mainB {
+  .suboption_main {
+    cursor: default;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
     background-color: $awesome;
-    color: $pearl
+    color: $pearl;
   }
-
-  .secondB{
-    height: 100%;
-    width: 100%;
+  .option {
+    height: 20%;
   }
-
-  .colorsSettings {
-    height: 100%;
-    width: 50%;
-  }
-
   .submit_settings{
     height: 20%;
     text-align: center;
-    width: 100%;
+    // width: 100%;
     border-radius: 20%;
     padding: 1rem;
     background-color: $awesome;
