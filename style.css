@@ -1,6 +1,7 @@
 html {
   padding: 0;
-  margin: 0;
+  margin-right: 8px;
+  margin-left: -5px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   background-color: #e8eddf;
@@ -17,6 +18,7 @@ html {
   display: -ms-grid;
   display: grid;
   grid-auto-columns: 33%;
+  grid-auto-rows: 33%;
 }
 
 .game_container {
@@ -66,6 +68,7 @@ html {
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
+  height: auto;
 }
 
 .options .options_menu {
@@ -90,8 +93,32 @@ html {
   color: #ff1053 !important;
 }
 
+.divP {
+  height: 20%;
+  padding: 1rem;
+  color: #494947;
+  font-weight: bold;
+  text-align: left;
+}
+
 #info {
   height: 100%;
+}
+
+.option {
+  height: 20%;
+}
+
+.suboption {
+  width: 33%;
+  float: left;
+  height: 100%;
+}
+
+.colorsSettings {
+  width: 50%;
+  float: left;
+  height: 50%;
 }
 
 #settings {
@@ -129,8 +156,7 @@ html {
 }
 
 #settings .submit_settings {
-  position: absolute;
-  bottom: 0;
+  height: 20%;
   text-align: center;
   width: 100%;
   border-radius: 20%;

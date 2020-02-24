@@ -128,11 +128,11 @@ function options_click(onID, offID) {
   document.getElementById(onID).style.color = "#ff1053";
   document.getElementById(offID).style.color = "#e8eddf";
   if (onID === "left_b") {
-    document.getElementById("info3").style.display = "block";
+    document.getElementById("info").style.display = "block";
     document.getElementById("settings").style.display = "none";
   } else if (onID === "right_b") {
     document.getElementById("settings").style.display = "block";
-    document.getElementById("info3").style.display = "none";
+    document.getElementById("info").style.display = "none";
   }
 }
 
@@ -168,3 +168,7 @@ function RGBToHex(rgb) {
 
   return "#" + r + g + b;
 }
+
+// JQUERRY SHIT
+var cw = $('.options').width();
+$('.options').css({ 'height': cw + 'px' });

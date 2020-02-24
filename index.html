@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Tic Tac Toe</title>
   <link rel="stylesheet" href="./style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script defer src="./script.js"></script>
 </head>
 
@@ -27,46 +28,32 @@
       </div>
     </div>
     <div class="options">
-      <div class="options_menu" id="left_b" onclick='options_click("left_b", "right_b")'
-        style="border-bottom-left-radius: 10%;">
-        Pravidla
+      <!-- TOP BUTTONS -->
+      <div style="height: 20%;">
+        <div class="options_menu" id="left_b" onclick='options_click("left_b", "right_b")'
+          style="border-bottom-left-radius: 10%;">
+          Pravidla
+        </div>
+        <div class="options_menu" id="right_b" onclick='options_click("right_b", "left_b")'
+          style="border-bottom-right-radius: 10%;">
+          Nastavení</div>
       </div>
-      <div class="options_menu" id="right_b" onclick='options_click("right_b", "left_b")'
-        style="border-bottom-right-radius: 10%;">
-        Nastavení</div>
-      <div id="info3" class="info">
-        <p>Cílem hry je dosáhnout 3 a více znaků stejné barvy za sebou, ať už v sloupci, řadě nebo diagonále. </p>
-        <p>Hráči se střídají po každém tahu.</p>
-        <p>Herní plán je omezen na 3x3 polí</p>
+      <!-- INFORMATIONS AND RULES -->
+      <div id="info" style="width: 100%;height: 80%;display:block;">
+        <div class="info3" style="height: 100%;">
+          <div class="divP">&#8226;Cílem hry je dosáhnout 3 a více znaků stejné barvy za
+            sebou, ať
+            už v sloupci, řadě
+            nebo diagonále. </div>
+          <div class="divP">&#8226;Hráči se střídají po každém tahu.</div>
+          <div class="divP">&#8226;Herní plán je omezen na 3x3 polí</div>
+        </div>
       </div>
-      <div id="info5" class="info" style="display: none;">
-        <p>Cílem hry je dosáhnout 5 a více znaků stejné barvy za sebou, ať už v sloupci, řadě nebo diagonále. </p>
-        <p>Hráči se střídají po každém tahu.</p>
-        <p>Herní plán je omezen na 15x15 polí.</p>
-      </div>
-
+      <!-- SETTINGS -->
       <div id="settings">
-        <div class="fieldSize subSettingsContainer" style="border-radius: 0 0 10% 10%;">
-          <div class="mainB subSettings">Velikost pole:</div>
-          <div class="secondB subSettings">3x3</div>
-          <div class="secondB subSettings">10x10</div>
-        </div>
-        <div class="subSettingsContainer" style="border-radius: 10% 10% 10% 10%;">
-          <div class="mainB subSettings">Barvy:</div>
-          <div class="secondB subSettings">
-            <div class="colorsSettings" style="background-color: #ff1053;"></div>
-            <div class="colorsSettings" style="background-color: #e7e247;"></div>
-          </div>
-          <div class="secondB subSettings">
-            <div class="colorsSettings" style="background-color: #54defd;"></div>
-            <div class="colorsSettings" style="background-color: #e7e247;"></div>
-          </div>
-        </div>
-        <div class="subSettingsContainer" style="border-radius: 10% 10% 0 0;">
-          <div class="mainB subSettings">Velikost pole</div>
-          <div class="secondB subSettings">3x3</div>
-          <div class="secondB subSettings">10x10</div>
-        </div>
+        <div class="option"></div>
+        <div class="option"></div>
+        <div class="option"></div>
         <div class="submit_settings">Uložit nastavení</div>
       </div>
     </div>
