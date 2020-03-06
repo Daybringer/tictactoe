@@ -7,7 +7,9 @@ let playerColors = {
   pink: "#ff1053",
   pinkOff: "#FF638F",
   yellow: "#e7e247",
-  blue: "#54defd"
+  blue: "#54defd",
+  grey: "#494947",
+  pearl: "#e8eddf"
 }
 
 let settings = {
@@ -16,7 +18,7 @@ let settings = {
   gamePlan: `3`
 }
 
-const tempSettings = settings;
+const tempSettings = { ...settings };
 
 let gamePlan = gamePlanGen(+(settings.gamePlan));
 htmlSquareGen(3);
@@ -141,14 +143,34 @@ function win_check() {
   }
 
   function won(player) {
-    console.log((round % 2 === 0) ? settings.mainColor : settings.secondColor);
-    console.log((player === "tie") ? "Remíza!" : (player === "playerOne") ? "Růžový hráč vyhrál!" : "Žlutý hráč vyhrál!");
     win = true;
-    // let cursorObj = document.getElementsByClassName("square");
 
-    // for (let x = 0; x < cursorObj.length; x++) {
-    //   cursorObj[x].style.cursor = "default";
-    // }
+    // creating after element to cover game plan + reset button 
+    let coverup = document.createElement("div");
+    coverup.id = "coverup";
+    coverup.style.opacity = ".8";
+    coverup.style.backgroundColor = `${playerColors.grey}`;
+    coverup.style.position = "absolute";
+    coverup.style.top = "3px";
+    coverup.style.left = "3px";
+    coverup.style.width = "100%";
+    coverup.style.height = "100%";
+    document.getElementsByClassName("game_container")[0].appendChild(coverup);
+
+    let resetBtn = document.createElement("div");
+    resetBtn.id = "resetBtn";
+    resetBtn.classList.add((player === "tie") ? "resetBtnP" : (player === "playerOne") ? ((settings.mainColor === "#ff1053") ? "resetBtnP" : "resetBtnB") : "resetBtnY");
+    resetBtn.innerHTML = "RESET";
+    resetBtn.onclick = restart;
+    document.getElementsByClassName("game_container")[0].appendChild(resetBtn);
+
+    let winText = document.createElement("p");
+    winText.id = "winText";
+    winText.classList.add("winText");
+    winText.style.color = (player === "tie") ? playerColors.pearl : (player === "playerOne") ? settings.mainColor : settings.secondColor;
+    winText.innerHTML = (player === "tie") ? "PLICHTA" : "VYHRÁL!";
+    winText.style.textShadow = `6px 4px 0px ${playerColors.grey}`;
+    document.getElementsByClassName("game_container")[0].appendChild(winText);
   }
 
 
@@ -172,7 +194,15 @@ function options_click(onID, offID) {
 }
 
 function colorClick(colorDuo, id) {
-
+  tempSettings.mainColor = colorDuo.main;
+  tempSettings.secondColor = colorDuo.second;
+  if (id === "yellpink") {
+    document.getElementById("yellpink").style.opacity = "100%";
+    document.getElementById("yellblue").style.opacity = "70%";
+  } else {
+    document.getElementById("yellpink").style.opacity = "70%";
+    document.getElementById("yellblue").style.opacity = "100%";
+  }
 }
 
 
@@ -191,8 +221,25 @@ function gameSizeClick(gameSizeInt) {
 }
 
 function optionsFetch() {
+  settings = { ...tempSettings };
   restart()
+}
+
+
+function restart() {
+  htmlSquareGen(settings.gamePlan);
   gamePlan = gamePlanGen(+(settings.gamePlan));
+  win = false;
+  round = 1;
+  if (document.getElementById("coverup")) {
+    document.getElementsByClassName("game_container")[0].removeChild(document.getElementById("coverup"));
+  }
+  if (document.getElementById("winText")) {
+    document.getElementsByClassName("game_container")[0].removeChild(document.getElementById("winText"));
+  }
+  if (document.getElementById("resetBtn")) {
+    document.getElementsByClassName("game_container")[0].removeChild(document.getElementById("resetBtn"));
+  }
   if (settings.gamePlan === 15) {
     Array.from(document.getElementsByClassName("square")).forEach((el) => {
       el.style.borderWidth = "1px";
@@ -204,15 +251,6 @@ function optionsFetch() {
   } else {
     throw "Unknow size of game plan";
   }
-
-}
-
-
-function restart() {
-  htmlSquareGen(settings.gamePlan);
-  gamePlan = gamePlanGen(+(settings.gamePlan));
-  win = false;
-  round = 1;
 }
 
 // Converting RGB to HEX

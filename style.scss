@@ -33,6 +33,91 @@ html {
   margin-right: auto;
   position: relative;
 }
+.winText {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  top: 20%;
+  font-size: 5rem;
+  font-weight: 1000;
+  text-align: center;
+}
+.resetBtnP {
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 80%;
+  border-radius: 15px;
+  padding: 1rem;
+  background-color: $awesome;
+  color: $pearl;
+  font-size: 1.5rem;
+  font-weight: 1000;
+  cursor: pointer;
+  transition: 1s;
+}
+.resetBtnB {
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 80%;
+  border-radius: 15px;
+  padding: 1rem;
+  background-color: $maya;
+  color: $space_grey;
+  font-size: 1.5rem;
+  font-weight: 1000;
+  cursor: pointer;
+  transition: 1s;
+}
+.resetBtnY {
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 80%;
+  border-radius: 15px;
+  padding: 1rem;
+  background-color: $sandstorm;
+  color: $space_grey;
+  font-size: 1.5rem;
+  font-weight: 1000;
+  cursor: pointer;
+  transition: 1s;
+}
+.resetBtnB:hover {
+  background-color: $pearl !important;
+}
+.resetBtnY:hover {
+  background-color: $pearl !important;
+}
+.resetBtnP:hover {
+  background-color: $pearl !important;
+  color: $awesome !important;
+}
+// .game_container::after {
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   opacity: .7;
+//   height: 100%;
+//   width: 100%;
+//   background-color: $space_grey;
+// }
 .game {
   position: absolute;
   top: 0;
@@ -113,7 +198,7 @@ html {
     float: left;
     text-align: center;
     cursor: pointer;
-    transition: 0.9s;
+    transition: 0.9s !important;
     position: relative;
   }
   .suboption_main {
@@ -190,11 +275,7 @@ html {
 }
 .suboption_second {
   opacity: 70%;
-  transition: 0.25s;
-}
-.suboption_second:hover{
-  transition: 0.25s;
-  opacity: 100%;
+  transition: 0.25s !important;
 }
 
 @media only screen and (max-width: 767px) {

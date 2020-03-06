@@ -32,6 +32,91 @@ html {
   position: relative;
 }
 
+.winText {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  top: 20%;
+  font-size: 5rem;
+  font-weight: 1000;
+  text-align: center;
+}
+
+.resetBtnP {
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 80%;
+  border-radius: 15px;
+  padding: 1rem;
+  background-color: #ff1053;
+  color: #e8eddf;
+  font-size: 1.5rem;
+  font-weight: 1000;
+  cursor: pointer;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.resetBtnB {
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 80%;
+  border-radius: 15px;
+  padding: 1rem;
+  background-color: #54defd;
+  color: #494947;
+  font-size: 1.5rem;
+  font-weight: 1000;
+  cursor: pointer;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.resetBtnY {
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 80%;
+  border-radius: 15px;
+  padding: 1rem;
+  background-color: #e7e247;
+  color: #494947;
+  font-size: 1.5rem;
+  font-weight: 1000;
+  cursor: pointer;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.resetBtnB:hover {
+  background-color: #e8eddf !important;
+}
+
+.resetBtnY:hover {
+  background-color: #e8eddf !important;
+}
+
+.resetBtnP:hover {
+  background-color: #e8eddf !important;
+  color: #ff1053 !important;
+}
+
 .game {
   position: absolute;
   top: 0;
@@ -120,8 +205,8 @@ html {
   float: left;
   text-align: center;
   cursor: pointer;
-  -webkit-transition: 0.9s;
-  transition: 0.9s;
+  -webkit-transition: 0.9s !important;
+  transition: 0.9s !important;
   position: relative;
 }
 
@@ -211,14 +296,8 @@ html {
 
 .suboption_second {
   opacity: 70%;
-  -webkit-transition: 0.25s;
-  transition: 0.25s;
-}
-
-.suboption_second:hover {
-  -webkit-transition: 0.25s;
-  transition: 0.25s;
-  opacity: 100%;
+  -webkit-transition: 0.25s !important;
+  transition: 0.25s !important;
 }
 
 @media only screen and (max-width: 767px) {
