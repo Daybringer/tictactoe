@@ -16,8 +16,9 @@ let settings = {
   gamePlan: `3`
 }
 
+const tempSettings = settings;
 
-const gamePlan = gamePlanGen(+(settings.gamePlan));
+let gamePlan = gamePlanGen(+(settings.gamePlan));
 htmlSquareGen(3);
 
 // Default state of 
@@ -41,16 +42,19 @@ function htmlSquareGen(sizeOfGame) {
   Array.from(document.getElementsByClassName("square")).forEach((curr) => {
     document.getElementsByClassName("game")[0].removeChild(curr);
   });
+
   // creating new square grid
   for (let x = 0; x < sizeOfGame; x++) {
-    for (let y = 0; x < sizeOfGame; y++) {
+    for (let y = 0; y < sizeOfGame; y++) {
       let newSquare = document.createElement("div");
       newSquare.className = "square";
       newSquare.id = `${x}${y}`;
-      newSquare.onclick = `game_click('${newSquare.id}')`;
+      newSquare.onclick = () => game_click(newSquare.id);
+      newSquare.style.gridArea = `${x + 1}/${y + 1}`;
       document.getElementsByClassName("game")[0].appendChild(newSquare);
     }
   }
+
 }
 
 // Triggered by clicking on game plan
@@ -167,7 +171,7 @@ function options_click(onID, offID) {
   }
 }
 
-function colorClick(colorDuo) {
+function colorClick(colorDuo, id) {
 
 }
 
@@ -176,25 +180,39 @@ function gameSizeClick(gameSizeInt) {
   if (gameSizeInt === 3) {
     document.getElementById("3x3").style.boxShadow = "inset 0px 0px 0px 10px #ff1053";
     document.getElementById("15x15").style.boxShadow = "none";
+    tempSettings.gamePlan = 3;
   } else if (gameSizeInt === 15) {
     document.getElementById("15x15").style.boxShadow = "inset 0px 0px 0px 10px #ff1053";
     document.getElementById("3x3").style.boxShadow = "none";
+    tempSettings.gamePlan = 15;
   } else {
-    throw "WTF";
+    throw "unknown game size";
   }
 }
 
 function optionsFetch() {
+  restart()
+  gamePlan = gamePlanGen(+(settings.gamePlan));
+  if (settings.gamePlan === 15) {
+    Array.from(document.getElementsByClassName("square")).forEach((el) => {
+      el.style.borderWidth = "1px";
+    })
+  } else if (settings.gamePlan === 3) {
+    Array.from(document.getElementsByClassName("square")).forEach((el) => {
+      el.style.borderWidth = "3px";
+    })
+  } else {
+    throw "Unknow size of game plan";
+  }
 
 }
 
 
-function again() {
-  location.reload();
-}
-
-function makeUnclickable() {
-
+function restart() {
+  htmlSquareGen(settings.gamePlan);
+  gamePlan = gamePlanGen(+(settings.gamePlan));
+  win = false;
+  round = 1;
 }
 
 // Converting RGB to HEX
