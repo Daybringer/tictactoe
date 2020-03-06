@@ -9,7 +9,7 @@ html {
 
 .header {
   text-align: center;
-  padding: 5vw;
+  padding: 0vw;
   font-size: 5vw;
   color: #ff1053;
 }
@@ -24,7 +24,7 @@ html {
   -ms-grid-row: 1;
   grid-row: 1;
   -ms-grid-column: 2;
-  grid-column: 2;
+      grid-column-start: 2;
   padding-top: 100%;
   width: 100%;
   margin-left: auto;
@@ -46,7 +46,7 @@ html {
   text-align: center;
 }
 
-.game .square {
+.square {
   border: 3px solid #494947;
   -webkit-transition: 1s;
   transition: 1s;
@@ -83,7 +83,6 @@ html {
   cursor: pointer;
   -webkit-transition: 0.9s;
   transition: 0.9s;
-  position: relative;
 }
 
 .options .options_menu:hover {
@@ -101,6 +100,10 @@ html {
 
 #info {
   height: 100%;
+}
+
+.info3 {
+  padding: 5px;
 }
 
 #settings {
@@ -131,7 +134,7 @@ html {
 }
 
 #settings .option {
-  height: 20%;
+  height: 18%;
 }
 
 #settings .submit_settings {
@@ -180,6 +183,42 @@ html {
 
 #again {
   display: none;
+}
+
+.suboption_second1 {
+  border-bottom-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.suboption_second2 {
+  border-top-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.suboption_second1:hover {
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+  -webkit-box-shadow: inset 0px 0px 0px 10px #ff1053;
+          box-shadow: inset 0px 0px 0px 10px #ff1053;
+}
+
+.suboption_second2:hover {
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+  -webkit-box-shadow: inset 0px 0px 0px 10px #ff1053;
+          box-shadow: inset 0px 0px 0px 10px #ff1053;
+}
+
+.suboption_second {
+  opacity: 70%;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+
+.suboption_second:hover {
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+  opacity: 100%;
 }
 
 @media only screen and (max-width: 767px) {
@@ -239,5 +278,25 @@ html {
     grid-row: 2;
     text-align: center;
   }
+}
+
+#left_b {
+  background-color: #e8eddf;
+  color: #ff1053;
+}
+
+#left_b2 {
+  background-color: #ff1053;
+  color: #e8eddf;
+}
+
+#right_b {
+  background-color: #ff1053;
+  color: #e8eddf;
+}
+
+#right_b2 {
+  background-color: #e8eddf;
+  color: #ff1053;
 }
 /*# sourceMappingURL=style.css.map */

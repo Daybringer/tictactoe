@@ -1,28 +1,65 @@
 "use strict";
 
-var round = 1;
-var win = false;
+let round = 1;
+let win = false;
 
 let playerColors = {
   pink: "#ff1053",
   pinkOff: "#FF638F",
   yellow: "#e7e247",
-  blue: "#54defd",
+  blue: "#54defd"
 }
-const gamePlan = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
-let playerColorOne = "#ff1053";
-let playerColorTwo = "#e7e247";
-// Default state
+
+let settings = {
+  mainColor: `${playerColors.pink}`,
+  secondColor: `${playerColors.yellow}`,
+  gamePlan: `3`
+}
+
+
+const gamePlan = gamePlanGen(+(settings.gamePlan));
+htmlSquareGen(3);
+
+// Default state of 
 options_click("left_b", "right_b");
+
+// generating array of game tiles
+function gamePlanGen(sizeOfGame) {
+  let gameArray = []
+  for (let x = 0; x < sizeOfGame; x++) {
+    gameArray.push([]);
+    for (let y = 0; y < sizeOfGame; y++) {
+      gameArray[x].push(0);
+    }
+  }
+  return gameArray;
+}
+
+// Dynamicaly generating html divs for game plan
+function htmlSquareGen(sizeOfGame) {
+  // removing old square grid
+  Array.from(document.getElementsByClassName("square")).forEach((curr) => {
+    document.getElementsByClassName("game")[0].removeChild(curr);
+  });
+  // creating new square grid
+  for (let x = 0; x < sizeOfGame; x++) {
+    for (let y = 0; x < sizeOfGame; y++) {
+      let newSquare = document.createElement("div");
+      newSquare.className = "square";
+      newSquare.id = `${x}${y}`;
+      newSquare.onclick = `game_click('${newSquare.id}')`;
+      document.getElementsByClassName("game")[0].appendChild(newSquare);
+    }
+  }
+}
 
 // Triggered by clicking on game plan
 function game_click(id) {
   if (RGBToHex(window.getComputedStyle(document.getElementById(id)).getPropertyValue("background-color")) === "#e8eddf" && !win) {
 
-    document.getElementById(id).style.backgroundColor = (round % 2 === 1) ? playerColorOne : playerColorTwo;
+    document.getElementById(id).style.backgroundColor = (round % 2 === 1) ? settings.mainColor : settings.secondColor;
     document.getElementById(id).style.cursor = "default";
-    document.getElementById("draw_player").style.backgroundColor = (round % 2 === 0) ? playerColorOne : playerColorTwo;
-    gamePlan[id.charCodeAt(0) - 97][Number(id.charAt(1)) - 1] = (round % 2 === 1) ? "X" : "O";
+    gamePlan[Number(id.charAt(0))][Number(id.charAt(1))] = (round % 2 === 1) ? "X" : "O";
     round++;
     win_check();
   } else {
@@ -97,23 +134,17 @@ function win_check() {
   }
   if (whiteCounter === 0) {
     won("tie");
-  } else {
-    console.log(whiteCounter);
   }
 
   function won(player) {
-    document.getElementById("draw_player").style.display = "none";
-    document.getElementById("game_state").style.display = "block";
-    document.getElementById("again").style.display = "block";
-
-    document.getElementById("game_state_text").style.color = (round % 2 === 0) ? playerColorOne : playerColorTwo;
-    document.getElementById("game_state_text").innerHTML = (player === "tie") ? "Remíza!" : (player === "playerOne") ? "Růžový hráč vyhrál!" : "Žlutý hráč vyhrál!";
+    console.log((round % 2 === 0) ? settings.mainColor : settings.secondColor);
+    console.log((player === "tie") ? "Remíza!" : (player === "playerOne") ? "Růžový hráč vyhrál!" : "Žlutý hráč vyhrál!");
     win = true;
-    let cursorObj = document.getElementsByClassName("square");
+    // let cursorObj = document.getElementsByClassName("square");
 
-    for (let x = 0; x < cursorObj.length; x++) {
-      cursorObj[x].style.cursor = "default";
-    }
+    // for (let x = 0; x < cursorObj.length; x++) {
+    //   cursorObj[x].style.cursor = "default";
+    // }
   }
 
 
@@ -123,22 +154,40 @@ function win_check() {
 
 // Options buttons SHOW/HIDE
 function options_click(onID, offID) {
-  document.getElementById(onID).style.backgroundColor = "#e8eddf";
-  document.getElementById(offID).style.backgroundColor = "#ff1053";
-  document.getElementById(onID).style.color = "#ff1053";
-  document.getElementById(offID).style.color = "#e8eddf";
-  if (onID === "left_b") {
+  // document.getElementById(onID).style.backgroundColor = "#e8eddf";
+  // document.getElementById(offID).style.backgroundColor = "#ff1053";
+  // document.getElementById(onID).style.color = "#ff1053";
+  // document.getElementById(offID).style.color = "#e8eddf";
+  if (onID === "left_b" || onID === "left_b2") {
     document.getElementById("info").style.display = "block";
     document.getElementById("settings").style.display = "none";
-  } else if (onID === "right_b") {
+  } else if (onID === "right_b" || onID === "right_b2") {
     document.getElementById("settings").style.display = "block";
     document.getElementById("info").style.display = "none";
   }
 }
 
-function makeClickable() {
+function colorClick(colorDuo) {
 
 }
+
+
+function gameSizeClick(gameSizeInt) {
+  if (gameSizeInt === 3) {
+    document.getElementById("3x3").style.boxShadow = "inset 0px 0px 0px 10px #ff1053";
+    document.getElementById("15x15").style.boxShadow = "none";
+  } else if (gameSizeInt === 15) {
+    document.getElementById("15x15").style.boxShadow = "inset 0px 0px 0px 10px #ff1053";
+    document.getElementById("3x3").style.boxShadow = "none";
+  } else {
+    throw "WTF";
+  }
+}
+
+function optionsFetch() {
+
+}
+
 
 function again() {
   location.reload();

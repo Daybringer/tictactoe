@@ -38,50 +38,56 @@
             Pravidla
           </div>
           <div class="options_menu" id="right_b" onclick='options_click("right_b", "left_b")'
-            style="border-bottom-right-radius: 10%;">
+            style="border-bottom-right-radius: 10%;margin-bottom: 30px;">
             Nastavení</div>
         </div>
-        <div class="info3" style="height: 80%;">
-          <div class="divP">&#8226;Cílem hry je dosáhnout 3 a více znaků stejné barvy za
-            sebou, ať
-            už v sloupci, řadě
+        <div class="info3" style="height: auto;">
+          <div class="divP">&#8226;Cílem hry je dosáhnout 3/5 a více znaků stejné barvy za sebou, ať už v sloupci, řadě
             nebo diagonále. </div>
           <div class="divP">&#8226;Hráči se střídají po každém tahu.</div>
-          <div class="divP">&#8226;Herní plán je omezen na 3x3 polí</div>
+          <div class="divP">&#8226;Herní plán je omezen na 3x3/15x15 polí</div>
         </div>
       </div>
       <!-- SETTINGS -->
       <div id="settings">
         <div class="option">
-          <div class="options_menu" id="left_b" onclick='options_click("left_b", "right_b")'
+          <div class="options_menu" id="left_b2" onclick='options_click("left_b2", "right_b2")'
             style="border-bottom-left-radius: 10%;">
             Pravidla
           </div>
-          <div class="options_menu" id="right_b" onclick='options_click("right_b", "left_b")'
+          <div class="options_menu" id="right_b2" onclick='options_click("right_b2", "left_b2")'
             style="border-bottom-right-radius: 10%;">
             Nastavení</div>
         </div>
-        <div class="option">
+        <div class="option" style="margin-top: 10%;">
           <div class="suboption suboption_main">Pole:</div>
-          <div class="suboption">3x3</div>
-          <div class="suboption">15x15</div>
+          <div id="3x3" class="suboption suboption_second1" onclick='gameSizeClick(3)'>3x3</div>
+          <div id="15x15" class="suboption suboption_second2" onclick='gameSizeClick(15)'>15x15</div>
         </div>
         <div class="option">
           <div class="suboption suboption_main">Barvy:</div>
-          <div class="suboption">3x3</div>
-          <div class="suboption">15x15</div>
+          <div class="suboption suboption_second" style="padding:0;"
+            onclick='colorClick({main:"#ff1053", second:"#e7e247"})'>
+            <div
+              style="height:100%;width: 50%; padding-top: 2rem;padding-bottom: 2rem; background-color: #e7e247; float: left; color: #e7e247; border-bottom-left-radius: 1rem; user-select: none;">
+              .</div>
+            <div
+              style="height:100%;width: 50%; padding-top: 2rem; padding-bottom: 2rem; background-color: #ff1053; float: right; color: #ff1053; border-top-right-radius: 1rem; user-select: none;">
+              .</div>
+          </div>
+          <div class="suboption suboption_second" style="padding:0;"
+            onclick='colorClick({main:"#e7e247", second:"#54defd"})'>
+            <div style=" height:100%;width: 50%; padding-top: 2rem;padding-bottom: 2rem; background-color: #e7e247;
+            float: left; color: #e7e247; border-top-left-radius: 1rem; user-select: none;">
+              .</div>
+            <div
+              style="height:100%;width: 50%; padding-top: 2rem; padding-bottom: 2rem; background-color: #54defd; float: right; color: #54defd; border-bottom-right-radius: 1rem; user-select: none;">
+              .</div>
+          </div>
         </div>
-        <div class="option">WTF</div>
-        <div class="submit_settings">Uložit nastavení</div>
-      </div>
-    </div>
-    <div class="draw">
-      <div id="draw_player"></div>
-      <div id="game_state">
-        <h1 id="game_state_text"></h1>
-      </div>
-      <div id="again">
-        <button onclick="again()">Znovu?</button>
+        <!-- WORKAROUND  -->
+        <div class="option"></div>
+        <div class="submit_settings" onclick='optionsFetch()'>Uložit nastavení</div>
       </div>
     </div>
   </div>
