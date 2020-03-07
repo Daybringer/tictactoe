@@ -104,6 +104,31 @@ html {
   transition: 1s;
 }
 
+.resetBtnT {
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 80%;
+  border-radius: 15px;
+  padding: 1rem;
+  background-color: #e8eddf;
+  color: #494947;
+  font-size: 1.5rem;
+  font-weight: 1000;
+  cursor: pointer;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.resetBtnT:hover {
+  background-color: #494947 !important;
+  color: #e8eddf !important;
+}
+
 .resetBtnB:hover {
   background-color: #e8eddf !important;
 }
@@ -298,6 +323,24 @@ html {
   opacity: 70%;
   -webkit-transition: 0.25s !important;
   transition: 0.25s !important;
+}
+
+.footer {
+  margin-top: 2rem;
+  margin-bottom: 0;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  color: #494947;
+  font-weight: 1000;
+  font-size: 1rem;
+  -webkit-transition: 0.75s;
+  transition: 0.75s;
+  cursor: pointer;
+}
+
+.footer:hover {
+  color: #ff1053;
 }
 
 @media only screen and (max-width: 767px) {

@@ -98,6 +98,28 @@ html {
   cursor: pointer;
   transition: 1s;
 }
+.resetBtnT {
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 80%;
+  border-radius: 15px;
+  padding: 1rem;
+  background-color: $pearl;
+  color: $space_grey;
+  font-size: 1.5rem;
+  font-weight: 1000;
+  cursor: pointer;
+  transition: 1s;
+}
+.resetBtnT:hover {
+  background-color: $space_grey !important;
+  color: $pearl !important;
+}
 .resetBtnB:hover {
   background-color: $pearl !important;
 }
@@ -276,6 +298,23 @@ html {
 .suboption_second {
   opacity: 70%;
   transition: 0.25s !important;
+}
+
+.footer {
+  margin-top: 2rem;
+  margin-bottom: 0;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  color: $space_grey;
+  font-weight: 1000;
+  font-size: 1rem;
+  transition: 0.75s;
+  cursor: pointer;
+}
+
+.footer:hover {
+  color: $awesome
 }
 
 @media only screen and (max-width: 767px) {
