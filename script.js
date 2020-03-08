@@ -221,22 +221,25 @@ function win_check() {
         xCounterBDR = 0;
         oCounterBDR = 0;
       }
-    }
-    if (gamePlan.length === 3) {
-      if (xCounterDR >= 3 || xCounterDL >= 3 || xCounterBDL >= 3 || xCounterBDR >= 3) {
-        won("playerOne");
-        return true;
-      } else if (oCounterDR >= 3 || oCounterDL >= 3 || oCounterBDL >= 3 || oCounterBDR >= 3) {
-        won("playerTwo");
-        return true;
-      }
-    } else if (gamePlan.length === 15) {
-      if (xCounterDR >= 5 || xCounterDL >= 5 || xCounterBDL >= 5 || xCounterBDR >= 5) {
-        won("playerOne");
-        return true;
-      } else if (oCounterDR >= 5 || oCounterDL >= 5 || oCounterBDL >= 5 || oCounterBDR >= 5) {
-        won("playerTwo");
-        return true;
+      if (gamePlan.length === 3) {
+        if (xCounterDR >= 3 || xCounterDL >= 3 || xCounterBDL >= 3 || xCounterBDR >= 3) {
+          won("playerOne");
+          return true;
+        } else if (oCounterDR >= 3 || oCounterDL >= 3 || oCounterBDL >= 3 || oCounterBDR >= 3) {
+          won("playerTwo");
+          return true;
+        }
+      } else if (gamePlan.length === 15) {
+        if (xCounterDR >= 5 || xCounterDL >= 5 || xCounterBDL >= 5 || xCounterBDR >= 5) {
+          console.log(xCounterDR + " " + xCounterDL + " " + xCounterBDL + " " + xCounterBDR)
+          won("playerOne");
+          console.log(xCounterDR + " " + xCounterDL + " " + xCounterBDL + " " + xCounterBDR)
+          return true;
+        } else if (oCounterDR >= 5 || oCounterDL >= 5 || oCounterBDL >= 5 || oCounterBDR >= 5) {
+          console.log(oCounterDR + " " + oCounterDL + " " + oCounterBDL + " " + oCounterBDR)
+          won("playerTwo");
+          return true;
+        }
       }
     }
   }
