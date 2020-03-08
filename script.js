@@ -124,7 +124,11 @@ function win_check() {
       } else if (gamePlan[x][y] === "O") {
         oCounterH++;
         xCounterH = 0;
+      } else {
+        xCounterH = 0;
+        oCounterH = 0;
       }
+
       if (gamePlan[x][y] === 0) {
         whiteCounter++;
       }
@@ -136,6 +140,9 @@ function win_check() {
       } else if (gamePlan[y][x] === "O") {
         oCounterV++;
         xCounterV = 0;
+      } else {
+        xCounterV = 0;
+        oCounterV = 0;
       }
 
       // Win condition check
@@ -177,6 +184,9 @@ function win_check() {
       } else if (gamePlanLDiagonal[x][y] === "O") {
         oCounterDL++;
         xCounterDL = 0;
+      } else {
+        xCounterDL = 0;
+        oCounterDL = 0;
       }
 
       if (gamePlanLDiagonal[gamePlanLDiagonal.length - x - 1][y] === "X") {
@@ -185,6 +195,9 @@ function win_check() {
       } else if (gamePlanLDiagonal[gamePlanLDiagonal.length - x - 1][y] === "O") {
         oCounterBDL++;
         xCounterBDL = 0;
+      } else {
+        xCounterBDL = 0;
+        oCounterBDL = 0;
       }
 
       if (gamePlanRDiagonal[x][y] === "X") {
@@ -193,6 +206,9 @@ function win_check() {
       } else if (gamePlanRDiagonal[x][y] === "O") {
         oCounterDR++;
         xCounterDR = 0;
+      } else {
+        xCounterDR = 0;
+        oCounterDR = 0;
       }
 
       if (gamePlanRDiagonal[gamePlanRDiagonal.length - x - 1][y] === "X") {
@@ -201,6 +217,9 @@ function win_check() {
       } else if (gamePlanRDiagonal[gamePlanRDiagonal.length - x - 1][y] === "O") {
         oCounterBDR++;
         xCounterBDR = 0;
+      } else {
+        xCounterBDR = 0;
+        oCounterBDR = 0;
       }
     }
     if (gamePlan.length === 3) {
@@ -244,7 +263,7 @@ function win_check() {
     let resetBtn = document.createElement("div");
     resetBtn.id = "resetBtn";
     resetBtn.classList.add((player === "tie") ? "resetBtnT" : (player === "playerOne") ? ((settings.mainColor === "#ff1053") ? "resetBtnP" : "resetBtnB") : "resetBtnY");
-    resetBtn.innerHTML = "RESET";
+    resetBtn.innerHTML = "ZNOVU";
     resetBtn.onclick = restart;
     document.getElementsByClassName("game_container")[0].appendChild(resetBtn);
 
