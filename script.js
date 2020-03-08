@@ -15,7 +15,7 @@ let playerColors = {
 let settings = {
   mainColor: `${playerColors.pink}`,
   secondColor: `${playerColors.yellow}`,
-  gamePlan: `3`
+  gamePlan: 3
 }
 
 const tempSettings = { ...settings };
@@ -88,17 +88,15 @@ function game_click(id) {
     document.getElementById(id).style.backgroundColor = (round % 2 === 1) ? settings.mainColor : settings.secondColor;
     document.getElementById(id).style.cursor = "default";
     let xGrid = Number(id.split(":")[0]);
-    let yGrid = Number(id.split(":")[1])
+    let yGrid = Number(id.split(":")[1]);
     gamePlan[xGrid][yGrid] = (round % 2 === 1) ? "X" : "O";
 
-    let xPosition = 0;
-    let yPosition = (xGrid + yGrid < settings.gamePlan) ? yGrid : settings.gamePlan - (xGrid + yGrid) + yGrid - 1;
+    let xPosition = (xGrid - yGrid <= 0) ? settings.gamePlan - yGrid - 1 : yGrid;
+    let yPosition = (xGrid + yGrid < settings.gamePlan) ? yGrid : settings.gamePlan - xGrid - 1;
 
     gamePlanLDiagonal[xGrid + yGrid][yPosition] = (round % 2 === 1) ? "X" : "O";
-    // gamePlanLDiagonal[Number(id.split(":")[0]) + Number(id.split(":")[1])][xPosition] = (round % 2 === 1) ? "X" : "O";
+    gamePlanRDiagonal[xGrid - yGrid + settings.gamePlan - 1][xPosition] = (round % 2 === 1) ? "X" : "O";
     round++;
-    console.log(gamePlanLDiagonal);
-    console.log(yPosition);
     win_check();
   } else {
 
@@ -114,12 +112,7 @@ function win_check() {
     var oCounterH = 0;
     var xCounterV = 0;
     var oCounterV = 0;
-    var xCounterDR = 0;
-    var oCounterDR = 0;
-    var xCounterDL = 0;
-    var oCounterDL = 0;
-    var xCounterBDL = 0;
-    var oCounterBDL = 0;
+
 
 
     for (let y = 0; y < gamePlan[x].length; y++) {
@@ -168,6 +161,14 @@ function win_check() {
 
   // Diagonal check
   for (let x = 0; x < settings.gamePlan; x++) {
+    var xCounterDR = 0;
+    var oCounterDR = 0;
+    var xCounterDL = 0;
+    var oCounterDL = 0;
+    var xCounterBDL = 0;
+    var oCounterBDL = 0;
+    var xCounterBDR = 0;
+    var oCounterBDR = 0;
     for (let y = 0; y < x + 1; y++) {
 
       if (gamePlanLDiagonal[x][y] === "X") {
@@ -185,20 +186,36 @@ function win_check() {
         oCounterBDL++;
         xCounterBDL = 0;
       }
+
+      if (gamePlanRDiagonal[x][y] === "X") {
+        xCounterDR++;
+        oCounterDR = 0;
+      } else if (gamePlanRDiagonal[x][y] === "O") {
+        oCounterDR++;
+        xCounterDR = 0;
+      }
+
+      if (gamePlanRDiagonal[gamePlanRDiagonal.length - x - 1][y] === "X") {
+        xCounterBDR++;
+        oCounterBDR = 0;
+      } else if (gamePlanRDiagonal[gamePlanRDiagonal.length - x - 1][y] === "O") {
+        oCounterBDR++;
+        xCounterBDR = 0;
+      }
     }
     if (gamePlan.length === 3) {
-      if (xCounterDR >= 3 || xCounterDL >= 3 || xCounterBDL >= 3) {
+      if (xCounterDR >= 3 || xCounterDL >= 3 || xCounterBDL >= 3 || xCounterBDR >= 3) {
         won("playerOne");
         return true;
-      } else if (oCounterDR >= 3 || oCounterDL >= 3 || oCounterBDL >= 3) {
+      } else if (oCounterDR >= 3 || oCounterDL >= 3 || oCounterBDL >= 3 || oCounterBDR >= 3) {
         won("playerTwo");
         return true;
       }
     } else if (gamePlan.length === 15) {
-      if (xCounterDR >= 5 || xCounterDL >= 5 || xCounterBDL >= 5) {
+      if (xCounterDR >= 5 || xCounterDL >= 5 || xCounterBDL >= 5 || xCounterBDR >= 5) {
         won("playerOne");
         return true;
-      } else if (oCounterDR >= 5 || oCounterDL >= 5 || oCounterBDL >= 5) {
+      } else if (oCounterDR >= 5 || oCounterDL >= 5 || oCounterBDL >= 5 || oCounterBDR >= 5) {
         won("playerTwo");
         return true;
       }
@@ -275,11 +292,11 @@ function gameSizeClick(gameSizeInt) {
   if (gameSizeInt === 3) {
     document.getElementById("3x3").style.boxShadow = "inset 0px 0px 0px 10px #ff1053";
     document.getElementById("15x15").style.boxShadow = "none";
-    tempSettings.gamePlan = "3";
+    tempSettings.gamePlan = 3;
   } else if (gameSizeInt === 15) {
     document.getElementById("15x15").style.boxShadow = "inset 0px 0px 0px 10px #ff1053";
     document.getElementById("3x3").style.boxShadow = "none";
-    tempSettings.gamePlan = "15";
+    tempSettings.gamePlan = 15;
   } else {
     throw "unknown game size";
   }
@@ -307,11 +324,11 @@ function restart() {
   if (document.getElementById("resetBtn")) {
     document.getElementsByClassName("game_container")[0].removeChild(document.getElementById("resetBtn"));
   }
-  if (settings.gamePlan === "15") {
+  if (settings.gamePlan === 15) {
     Array.from(document.getElementsByClassName("square")).forEach((el) => {
       el.style.borderWidth = "1px";
     })
-  } else if (settings.gamePlan === "3") {
+  } else if (settings.gamePlan === 3) {
     Array.from(document.getElementsByClassName("square")).forEach((el) => {
       el.style.borderWidth = "3px";
     })
