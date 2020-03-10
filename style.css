@@ -266,35 +266,6 @@ html {
   color: #ff1053 !important;
 }
 
-.draw {
-  -ms-grid-row: 1;
-  grid-row: 1;
-  -ms-grid-column: 3;
-  grid-column: 3;
-  text-align: center;
-}
-
-#draw_player {
-  border: 3px solid #494947;
-  border-radius: 20%;
-  height: 60px;
-  width: 50%;
-  background-color: #ff1053;
-  text-align: center;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#game_state {
-  display: none;
-}
-
-#again {
-  display: none;
-}
-
 .suboption_second1 {
   border-bottom-left-radius: 1rem;
   border-top-right-radius: 1rem;
@@ -364,11 +335,32 @@ html {
     -ms-grid-row: 2;
     grid-row: 2;
   }
-  .draw {
-    -ms-grid-column: 1;
-    grid-column: 1;
-    -ms-grid-row: 3;
-    grid-row: 3;
+  #settings .suboption {
+    font-size: 1rem;
+  }
+  #settings .submit_settings {
+    font-size: 1rem;
+  }
+  .options .options_menu {
+    font-size: 1rem;
+  }
+  .divP {
+    padding: 0.5rem;
+  }
+  .winText {
+    font-size: 3.5rem;
+  }
+  .resetBtnP {
+    font-size: 1.0rem;
+  }
+  .resetBtnB {
+    font-size: 1.0rem;
+  }
+  .resetBtnY {
+    font-size: 1.0rem;
+  }
+  .resetBtnT {
+    font-size: 1.0rem;
   }
 }
 
@@ -392,13 +384,17 @@ html {
     -ms-grid-row: 1;
     grid-row: 1;
   }
-  .draw {
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 2;
-    grid-column: 1/ span 2;
-    -ms-grid-row: 2;
-    grid-row: 2;
-    text-align: center;
+  #settings .suboption {
+    font-size: 1rem;
+  }
+  #settings .submit_settings {
+    font-size: 1rem;
+  }
+  .options .options_menu {
+    font-size: 1rem;
+  }
+  .divP {
+    padding: 0.5rem;
   }
 }
 
